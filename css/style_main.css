@@ -33,17 +33,22 @@
 }
 
 .card_course .name_course p::before {
-    content: '';
+    content: 'Подробнее';
+    padding: 0;
+    text-align: cover;
+    color: rgba(255, 255, 255, 0);
+    font-size: 22px;
     position: absolute;
     background: #04ACFF;
     width: 100%;
     height: 0%;
     bottom: 0;
-    transition: height 200ms;
+    transition: height 200ms, color 200ms;
 }
 
 .card_course:hover .name_course p::before {
-    height: 8px;
+    height: 25px;
+    color: white;
     /*animation: fill 200ms forwards;*/
 }
 
