@@ -1,0 +1,28 @@
+<#include "security.ftlh">
+<#import "login.ftlh" as l>
+
+<#macro navbar>
+
+    <img src="img/logo.png" alt="">
+    <a href="/">Каталог курсов</a>
+    <#if isAnon >
+        <a href="/registration">Регистрация</a>
+        <a href="/login"">Войти</a>
+
+        <#else >
+            <#if isModer>
+                <a href="/user">Мой профиль</a>
+            </#if>
+
+            <#if isAdmin>
+                <a href="/user">Мой профиль</a>
+                <a href="/users_edit">Редактировать пользователя (для админа)</a>
+            </#if>
+            <a href="/courses">Мои курсы</a>
+            <p> name </p>
+            <form action="/logout" method="post">
+                <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                <input type="submit" value="Выйти"/>
+            </form>
+    </#if>
+</#macro>

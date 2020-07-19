@@ -1,0 +1,127 @@
+.content {
+    padding: 0 60px;
+}
+
+
+.cards_courses {
+    padding: 30px;
+}
+
+.card_course_img img {
+    width:100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 200ms;
+}
+
+.card_course_img {
+    overflow: hidden;
+    height: 350px;
+}
+
+
+.card_course {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #cccccc;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    align-items: center;
+    /*max-width: 300px;*/
+    cursor: pointer;
+}
+
+.card_course .name_course p::before {
+    content: '';
+    position: absolute;
+    background: #04ACFF;
+    width: 100%;
+    height: 0%;
+    bottom: 0;
+    transition: height 200ms;
+}
+
+.card_course:hover .name_course p::before {
+    height: 8px;
+    /*animation: fill 200ms forwards;*/
+}
+
+.card_course:hover .card_course_img img {
+    transform: scale(1.05);
+}
+
+.name_course {
+    position: relative;
+}
+
+.name_course p {
+    padding: 10px 10px 10px 0px;
+    color: #808080;
+    position: relative;
+    font-weight: 600;
+    font-size: 18pt;
+}
+.card_course:hover .name_course p {
+    position: relative;
+    color: #04ACFF;
+}
+
+.about_course {
+    padding: 5px 10px 15px 0px;
+}
+
+.about_course p {
+    color: #808080;
+    font-weight: 300;
+    font-size: 13pt;
+    cursor: default;
+}
+
+.row {
+    margin: 8px -16px;
+}
+
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+
+.column {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+@media screen and (max-width: 800px) {
+    .column {
+        width: 100%;
+    }
+}
+
+#header_courses {
+    text-align: left;
+    font-weight: 600;
+    font-size: 18pt;
+    color: #808080;
+
+    padding-left: 30px;
+    /*margin-left: -16px;*/
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #cccccc;
+    padding-top: 15px;
+}
+
+
+
+
