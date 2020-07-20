@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_main.css">
+    <link rel="stylesheet" href="css/style_login.css">
 </head>
 
 <body>
@@ -37,166 +37,22 @@
             </div>
         </header>
         <div class="content">
-            <h2 id="header_courses">Какие курсы у нас есть</h2>
-            <div class="cards_courses">
-                <div class="row">
-                    <div class="column">
-                        <a href="/course/${course.id}">
-                            <div class="card_course">
-                                <div class="card_course_img">
-                                    <img src="img/aoao.jpg" alt="Логотип Курса">
-                                </div>
-                                <div class="card_course_texts">
-                                    <div class="name_course">
-                                        <p>Ассемблер</p>
-                                    </div>
-                                    <div class="about_course">
-                                        <p>Порви свою жопу!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="/course/${course.id}">
-                            <div class="card_course">
-                                <div class="card_course_img">
-                                    <img src="img/aoao2.jpg" alt="Логотип Курса">
-                                </div>
-                                <div class="card_course_texts">
-                                    <div class="name_course">
-                                        <p>C++</p>
-                                    </div>
-                                    <div class="about_course">
-                                        <p>Почувствуй боль при входе</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+            <form action="/login" method="post" class="ui-form">
+                <h3>Войти</h3>
+                <div class="form-row">
+                    <input type="text" id="login" name="username" required autocomplete="off">
+                    <label for="login">Логин</label>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <a href="/course/${course.id}">
-                            <div class="card_course">
-                                <div class="card_course_img">
-                                    <img src="img/fotof.jpg" alt="Логотип Курса">
-                                </div>
-                                <div class="card_course_texts">
-                                    <div class="name_course">
-                                        <p>Lorem ipsum dolor sit amet.</p>
-                                    </div>
-                                    <div class="about_course">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore earum
-                                            explicabo
-                                            commodi
-                                            quam dolorum itaque deleniti sed omnis, eligendi, odio non inventore
-                                            corrupti,
-                                            nemo ea
-                                            cumque soluta libero rem aliquid!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="/course/${course.id}">
-                            <div class="card_course">
-                                <div class="card_course_img">
-                                    <img src="img/fotof.jpg" alt="Логотип Курса">
-                                </div>
-                                <div class="card_course_texts">
-                                    <div class="name_course">
-                                        <p>Lorem ipsum dolor sit amet.</p>
-                                    </div>
-                                    <div class="about_course">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore earum
-                                            explicabo
-                                            commodi
-                                            quam dolorum itaque deleniti sed omnis, eligendi, odio non inventore
-                                            corrupti,
-                                            nemo ea
-                                            cumque soluta libero rem aliquid!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="form-row">
+                    <input type="password" id="password" name="password" required autocomplete="off">
+                    <label for="password">Пароль</label>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <a href="/course/${course.id}">
-                            <div class="card_course">
-                                <div class="card_course_img">
-                                    <img src="img/fotof.jpg" alt="Логотип Курса">
-                                </div>
-                                <div class="card_course_texts">
-                                    <div class="name_course">
-                                        <p>Lorem ipsum dolor sit amet.</p>
-                                    </div>
-                                    <div class="about_course">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore earum
-                                            explicabo
-                                            commodi
-                                            quam dolorum itaque deleniti sed omnis, eligendi, odio non inventore
-                                            corrupti,
-                                            nemo ea
-                                            cumque soluta libero rem aliquid!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="column">
-                        <a href="/course/${course.id}">
-                            <div class="card_course">
-                                <div class="card_course_img">
-                                    <img src="img/fotof.jpg" alt="Логотип Курса">
-                                </div>
-                                <div class="card_course_texts">
-                                    <div class="name_course">
-                                        <p>Lorem ipsum dolor sit amet.</p>
-                                    </div>
-                                    <div class="about_course">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore earum
-                                            explicabo
-                                            commodi
-                                            quam dolorum itaque deleniti sed omnis, eligendi, odio non inventore
-                                            corrupti,
-                                            nemo ea
-                                            cumque soluta libero rem aliquid!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                <div class="btn"><input type="submit" value="Войти"/></div>
+                <div class="registration">
+                    <a href="/registration">Регистрация</a>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <a href="/course/${course.id}">
-                            <div class="card_course">
-                                <div class="card_course_img">
-                                    <img src="img/fotof.jpg" alt="Логотип Курса">
-                                </div>
-                                <div class="card_course_texts">
-                                    <div class="name_course">
-                                        <p>Lorem ipsum dolor sit amet.</p>
-                                    </div>
-                                    <div class="about_course">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore earum
-                                            explicabo
-                                            commodi
-                                            quam dolorum itaque deleniti sed omnis, eligendi, odio non inventore
-                                            corrupti,
-                                            nemo ea
-                                            cumque soluta libero rem aliquid!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
 
         <div class="footer">
