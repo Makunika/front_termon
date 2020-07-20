@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_login.css">
+    <link rel="stylesheet" href="css/style_course.css">
 </head>
 
 <body>
@@ -37,29 +37,25 @@
             </div>
         </header>
         <div class="content">
-            <form action="/login" method="post" class="ui-form">
-                <h3>Войти</h3>
-                <div class="form-row">
-                    <input type="text" id="login" name="username" required autocomplete="off">
-                    <label for="login">Логин</label>
+            <div class="wrapper">
+                <div class="row">
+                    <div class="column column_text">
+                        <h4>JAVA</h4>
+                        <p class="about">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, temporibus
+                            error! Sit porro quo, accusantium necessitatibus magni distinctio sint dignissimos non ex
+                            culpa veritatis dolorum quae nisi numquam saepe dicta.</p>
+                            <a href="/login" class="btn_course_start">Для записи необходимо войти в аккаунт</a>
+                    </div>
+                    <div class="column column_img">
+                        <div class="img_course">
+                            <img src="img/fotof.jpg" alt="Логотип курса">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-row">
-                    <input type="password" id="password" name="password" required autocomplete="off">
-                    <label for="password">Пароль</label>
-                </div>
-                <input type="hidden" name="_csrf" value="${_csrf.token}" />
-                <div class="btn"><input type="submit" value="Войти"/></div>
-                <div class="registration">
-                    <a href="/registration">Регистрация</a>
-                </div>
-            </form>
-        </div>
-
-        <div class="footer">
-            <h4>© Bolt team</h4>
+            </div>
         </div>
     </div>
-    <script src="js/footer.js"></script>
+    <script src="js/common.js"></script>
 </body>
 
 </html>
