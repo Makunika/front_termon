@@ -18,6 +18,7 @@
 .wrapper .column_img img {
     height: 400px;
     width: 100%;
+    max-width: 650px;
     object-fit: cover;
 }
 
