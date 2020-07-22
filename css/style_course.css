@@ -26,6 +26,7 @@
     display: flex;
     padding-right: 100px;
     min-height: 400px;
+    max-width: 800px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
@@ -38,7 +39,7 @@
 }
 
 .wrapper .column_text p {
-    padding: 10px 0 10px 0;
+    padding: 20px 0 20px 0;
     font-size: 13pt;
 }
 
@@ -49,14 +50,17 @@
 .wrapper .column_text .btn_course_start {
     margin-bottom: 20px;
     padding: 10px 20px;
-    border: 1px solid #04ACFF;
+    color: #0468ff;
+    border: 1px solid #0468ff;
     background: transparent;
     font-size: 13pt;
-    transition: color 200ms;
+    transition: all 400ms;
 }
 
 .wrapper .column_text .btn_course_start:hover {
-    color: #0468ff;
+    color: white;
+    border-color: white;
+    background-color: #0468ff; 
 }
 
 
@@ -71,5 +75,6 @@
     .wrapper .row .column_text {
         order: 2;
         min-height: 250px;
+        padding-right: 0;
     }
 }
