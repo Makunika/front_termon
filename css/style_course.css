@@ -1,14 +1,19 @@
 
 
-.wrapper .row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.content {
     margin: 0 100px;
 }
 
+/*HEADER*/
+
+.wrapper .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .wrapper .column {
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .wrapper .column_img {
@@ -77,4 +82,68 @@
         min-height: 250px;
         padding-right: 0;
     }
+}
+
+/* programm */
+
+.programm_back {
+    background-color: pink;
+    padding-top: 10px;
+}
+
+.programm {
+    padding: 60px;
+    border: 1px solid black;
+}
+
+.programm_item > .header_programm > h3 {
+    padding-bottom: 20px;
+}
+
+.programm_item > .content_programm {
+    border-top: 1px solid black;
+}
+
+.programm_item > .content_programm > .accordion_item {
+    border-bottom: 1px solid black;
+}
+
+.programm_item > .content_programm > .accordion_item > .accordion_button {
+    padding: 30px 0;
+    font-weight: 400;
+    font-size: 35px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    transition: all 250ms;
+}
+
+.programm_item > .content_programm > .accordion_item > .accordion_button:hover {
+    background-color: #0468ff;
+    color: white;
+}
+
+.programm_item > .content_programm > .accordion_item > .accordion_button:focus {
+    border: 0;
+}
+
+.programm_item > .content_programm > .accordion_item > .accordion_button > span {
+    padding: 0 20px;
+}
+
+.accordion_content {
+    transition: display 200ms;
+}
+
+
+.hide {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
 }
