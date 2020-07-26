@@ -59,7 +59,7 @@
     border: 1px solid #0468ff;
     background: transparent;
     font-size: 13pt;
-    transition: all 400ms;
+    transition: all 200ms;
 }
 
 .wrapper .column_text .btn_course_start:hover {
@@ -70,9 +70,11 @@
 
 
 @media screen and (max-width: 900px) {
+    .content {
+        margin: 0 40px;
+    }
     .wrapper .row {
         flex-direction: column;
-        margin: 0 40px;
     }
     .wrapper .row .column_img {
         order: 1;
@@ -93,11 +95,14 @@
 
 .programm {
     padding: 60px;
-    border: 1px solid black;
 }
 
 .programm_item > .header_programm > h3 {
     padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 600;
+    font-size: 45px;
 }
 
 .programm_item > .content_programm {
@@ -111,7 +116,8 @@
 .programm_item > .content_programm > .accordion_item > .accordion_button {
     padding: 30px 0;
     font-weight: 400;
-    font-size: 35px;
+    font-size: 25px;
+    text-align: left;
     border: none;
     background-color: transparent;
     display: flex;
@@ -119,7 +125,7 @@
     justify-content: space-between;
     width: 100%;
     cursor: pointer;
-    transition: all 250ms;
+    transition: all 200ms;
 }
 
 .programm_item > .content_programm > .accordion_item > .accordion_button:hover {
@@ -131,12 +137,41 @@
     border: 0;
 }
 
-.programm_item > .content_programm > .accordion_item > .accordion_button > span {
-    padding: 0 20px;
+.programm_item > .content_programm > .accordion_item > .accordion_button > svg {
+    margin: 0 20px;
+    width: 34px;
+    height: 34px;
+    fill: black;
+    transition: fill 100ms, transform 300ms;
 }
 
-.accordion_content {
-    transition: display 200ms;
+.programm_item > .content_programm > .accordion_item > .accordion_button > span {
+    margin: 0 20px;
+}
+
+.programm_item > .content_programm > .accordion_item > .accordion_button:hover > svg {
+    fill: white;
+}
+
+
+.svg_rotate {
+    transform: rotate(45deg);
+}
+
+.accordion_content .accordoin_sublist {
+    padding: 0 50px;
+}
+
+.accordion_content .accordoin_sublist .accordion_sublist_item {
+    padding: 25px;
+    border-width: 0 0 2px 0;
+    border-color: rgb(255, 153, 167);
+    border-style: solid;
+}
+
+.accordion_content .accordoin_sublist .accordion_sublist_item:last-child {
+    padding: 25px;
+    border-width: 0;
 }
 
 
