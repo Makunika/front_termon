@@ -1,137 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Termon</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_course.css">
 </head>
-
 <body>
-    <div class="content_all">
-        <header class="header">
-            <div class="header_left">
-                <div class="header_logo">
-                    <img src="img/logo.png" alt="Логтипчик">
-                </div>
-                <nav class="header_links">
-                    <a href="/" class="header_link">Каталог курсов</a>
-                    <a href="/courses" class="header_link">Мои курсы</a>
-                    <a href="/user" class="header_link">Мой профиль</a>
-                    <a href="/users_edit" class="header_link">Редактировать пользователей (для админа)</a>
-                </nav>
+<div class="content_all">
+    <header class="header">
+        <div class="header_left">
+            <div class="header_logo">
+                <img src="img/logo.png" alt="Логтипчик">
             </div>
-            <div class="header_right">
-                <p class="header_name">name</p>
-                <a href="/registration" class="header_in header_btn">Войти</a>
-                <form action="/logout" method="GET">
-                    <input type="hidden" name="_csrf" value="${_csrf.token}" />
-                    <button type="submit" class="header_reg header_btn">Регистрация</button>
-                </form>
-                <form action="/logout" method="post">
-                    <input type="hidden" name="_csrf" value="${_csrf.token}" />
-                    <button type="submit" class="header_out header_btn">Выйти</button>
-                </form>
-            </div>
-        </header>
-        <div class="content__">
-            <div class="wrapper content">
-                <div class="row">
-                    <div class="column column_text">
-                        <h4>JAVA</h4>
-                        <p class="about">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, temporibus
-                            error! Sit porro quo, accusantium necessitatibus magni distinctio sint dignissimos non ex
-                            culpa veritatis dolorum quae nisi numquam saepe dicta. Lorem, ipsum dolor sit amet
-                            consectetur adipisicing elit. Ad beatae in pariatur, molestiae harum deleniti omnis fuga
-                            reprehenderit consequuntur, rerum maxime odit quisquam mollitia sapiente labore, officiis
-                            dolorem magni incidunt!</p>
-                        <a href="/login" class="btn_course_start">Для записи необходимо войти в аккаунт</a>
-                    </div>
-                    <div class="column column_img">
-                        <div class="img_course">
-                            <img src="img/fotof.jpg" alt="Логотип курса">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="programm_back">
-                <div class="programm content">
-                    <div class="programm_item">
-                        <header class="header_programm">
-                            <h3>Наша Программа</h3>
-                        </header>
-                        <ul class="content_programm">
-                            <li class="accordion_item">
-                                <button class="accordion_button"><span>Button</span><span class="acc_span">+</span></button>
-                                <div class="accordion_content hide">
-                                    <ol class="accordoin_sublist">
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                    </ol>
-                                </div>
-                            </li>
-                            <li class="accordion_item">
-                                <button class="accordion_button"><span>Button</span><span class="acc_span">+</span></button>
-                                <div class="accordion_content hide">
-                                    <ol class="accordoin_sublist">
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                    </ol>
-                                </div>
-                            </li>
-                            <li class="accordion_item">
-                                <button class="accordion_button"><span>Button</span><span class="acc_span">+</span></button>
-                                <div class="accordion_content hide">
-                                    <ol class="accordoin_sublist">
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                    </ol>
-                                </div>
-                            </li>
-                            <li class="accordion_item">
-                                <button class="accordion_button"><span>Button</span><span class="acc_span">+</span></button>
-                                <div class="accordion_content hide">
-                                    <ol class="accordoin_sublist">
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                    </ol>
-                                </div>
-                            </li>
-                            <li class="accordion_item">
-                                <button class="accordion_button"><span>Button</span><span class="acc_span">+</span></button>
-                                <div class="accordion_content hide">
-                                    <ol class="accordoin_sublist">
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                        <li class="accordion_sublist_item">subitem</li>
-                                    </ol>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <nav class="header_links">
+                <a href="/" class="header_link">Каталог курсов</a>
+                <a href="/courses" class="header_link">Мои курсы</a>
+            </nav>
         </div>
+        <div class="header_right">
+            <a href="/login" class="header_in header_btn">Войти</a>
+            <form action="/registration" method="GET">
+                <input type="hidden" name="_csrf" value="ab55dc3f-3ef6-4750-b02c-291ecdf35713" />
+                <button type="submit" class="header_reg header_btn">Регистрация</button>
+            </form>
+        </div>
+    </header>
+    <link rel="stylesheet" href="css/style_login.css">
+    <div class="content">
+        <form action="/login" method="post" class="ui-form">
+            <h3>Войти</h3>
+            <div class="form-row">
+                <input type="text" id="login" name="username" required autocomplete="off">
+                <label for="login">Логин</label>
+            </div>
+            <div class="form-row">
+                <input type="password" id="password" name="password" required autocomplete="off">
+                <label for="password">Пароль</label>
+            </div>
+            <input type="hidden" name="_csrf" value="ab55dc3f-3ef6-4750-b02c-291ecdf35713" />
+            <div class="btn"><input type="submit" value="Войти"/></div>
+            <div class="registration">
+                <a href="/registration">Регистрация</a>
+            </div>
+        </form>
     </div>
-    <script src="js/common.js"></script>
-    <script src="js/course.js"></script>
+</div>
+<script src="/static/js/common.js"></script>
 </body>
-
 </html>
