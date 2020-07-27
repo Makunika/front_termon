@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 export default function course() {
 
-
+/*
     function setClickAccordions() {
         $('.accordion_button').each(function(indx) {
             $(this).click(function() {
@@ -13,7 +13,7 @@ export default function course() {
             });
         });
     }
-    /* Programm loaded */
+    /* Programm loaded 
 
 
     class ModuleCourse {
@@ -25,7 +25,7 @@ export default function course() {
 
         render(parent) {
             $(parent).append(() => {
-                let value = /*html*/ `<li class="accordion_item">
+                let value =  `<li class="accordion_item">
                 <button class="accordion_button"><span>${this.name}</span><svg
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                         height="24">
@@ -35,9 +35,9 @@ export default function course() {
                     <ol class="accordoin_sublist">`;
 
                     this.lessons.forEach(element => {
-                    value += /*html*/ `<li class="accordion_sublist_item">${element.name}</li>`;
+                    value += `<li class="accordion_sublist_item">${element.name}</li>`;
                 });
-                value += /*html*/ `</ol></div></li>`;
+                value += `</ol></div></li>`;
                 return value;
             });
         }
@@ -52,6 +52,6 @@ export default function course() {
             .render('.content_programm');
         });
         setClickAccordions();
-    });
+    });*/
 
 }

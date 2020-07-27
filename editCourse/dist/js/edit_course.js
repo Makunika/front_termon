@@ -97,16 +97,19 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/common */ "./js/modules/common.js");
 /* harmony import */ var _modules_course__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/course */ "./js/modules/course.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_edit_course__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/edit_course */ "./js/modules/edit_course.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
 
-jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function() {
+
+jquery__WEBPACK_IMPORTED_MODULE_3___default()(document).ready(function() {
     Object(_modules_common__WEBPACK_IMPORTED_MODULE_0__["default"])();
     Object(_modules_course__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_modules_edit_course__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 });
 
@@ -175,16 +178,16 @@ __webpack_require__.r(__webpack_exports__);
 
 function course() {
 
-
+/*
     function setClickAccordions() {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.accordion_button').each(function(indx) {
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).click(function() {
-                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).next().slideToggle(300);
-                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').toggleClass('svg_rotate');
+        $('.accordion_button').each(function(indx) {
+            $(this).click(function() {
+                $(this).next().slideToggle(300);
+                $(this).children('svg').toggleClass('svg_rotate');
             });
         });
     }
-    /* Programm loaded */
+    /* Programm loaded 
 
 
     class ModuleCourse {
@@ -195,8 +198,8 @@ function course() {
         }
 
         render(parent) {
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()(parent).append(() => {
-                let value = /*html*/ `<li class="accordion_item">
+            $(parent).append(() => {
+                let value =  `<li class="accordion_item">
                 <button class="accordion_button"><span>${this.name}</span><svg
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                         height="24">
@@ -206,16 +209,16 @@ function course() {
                     <ol class="accordoin_sublist">`;
 
                     this.lessons.forEach(element => {
-                    value += /*html*/ `<li class="accordion_sublist_item">${element.name}</li>`;
+                    value += `<li class="accordion_sublist_item">${element.name}</li>`;
                 });
-                value += /*html*/ `</ol></div></li>`;
+                value += `</ol></div></li>`;
                 return value;
             });
         }
     }
     //${window.location.pathname}
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(`http://localhost:8080/api/courses/38/modules`, function(data) {
+    $.getJSON(`http://localhost:8080/api/courses/38/modules`, function(data) {
         console.log(data);
         data.forEach(element => {
             console.log(element);
@@ -223,8 +226,34 @@ function course() {
             .render('.content_programm');
         });
         setClickAccordions();
-    });
+    });*/
 
+}
+
+/***/ }),
+
+/***/ "./js/modules/edit_course.js":
+/*!***********************************!*\
+  !*** ./js/modules/edit_course.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return editCourse; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+
+function editCourse() {
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()( "#tabs" ).tabs()
+        .find( ".ui-tabs-nav" )
+        .sortable({ axis: "x" });
+        //
 }
 
 /***/ }),
@@ -11114,4 +11143,4 @@ return jQuery;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=course.js.map
+//# sourceMappingURL=edit_course.js.map
