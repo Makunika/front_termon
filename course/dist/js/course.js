@@ -234,9 +234,16 @@ function course() {
     }
     //${window.location.pathname}
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(`http://localhost:8080/api/courses/39/modules`, function(data) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(`http://localhost:8080/api/courses/38/modules`, function(data) {
         console.log(data);
     });
+    /*$.ajax({
+        url: "http://localhost:8080/api/courses/38/modules"
+    }).then(function(data, status, jqxhr) {
+        console.log(data.id);
+        console.log(data.content);
+       console.log(jqxhr);
+    });*/
 
 }
 
