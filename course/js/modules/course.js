@@ -63,7 +63,7 @@ export default function course() {
     }
     //${window.location.pathname}
 
-    $.getJSON(`http://localhost:8080/api/course/39/modules`, function(data) {
+    $.getJSON(`http://localhost:8080/api/courses/39/modules`, function(data) {
         console.log(data);
     });
 
