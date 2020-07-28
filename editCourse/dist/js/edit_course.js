@@ -250,10 +250,20 @@ __webpack_require__.r(__webpack_exports__);
 
 function editCourse() {
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()( "#tabs" ).tabs()
-        .find( ".ui-tabs-nav" )
-        .sortable({ axis: "x" });
-        //
+    let currentPage = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.active_link');
+    let currentContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.active_content');
+    
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.tabs_link:not(:last-child)').each(function(index) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).click(function(e) {
+            if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).hasClass('active_link')) {
+                currentPage.toggleClass('active_link');
+                jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).toggleClass('active_link');
+                currentPage = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target);
+
+                
+            }
+        });
+    });
 }
 
 /***/ }),
