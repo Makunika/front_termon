@@ -9,14 +9,14 @@
     width: 100%;
     align-items: center;
     justify-content: flex-start;
-    flex: wrap row;
+    flex-wrap: wrap;
 }
 
 .tabs .tabs_links .active_link {
     border-width: 1px 1px 5px 1px;
     border-style: solid;
     border-color: #0468ff;
-    padding: 10px 20px 5px 20px;
+    padding: 10px 20px 6px 20px;
 }
 
 .tabs_links .tabs_link {
@@ -26,6 +26,7 @@
     border: 1px solid #0468ff;
     background: transparent;
     font-size: 13pt;
+    cursor: pointer;
     transition: all 200ms;   
 }
 
@@ -34,8 +35,12 @@
     padding: 10px 20px;
     color: #0468ff;
     border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: transparent;
     font-size: 13pt;
+    position: relative;
     transition: all 200ms;   
 }
 
@@ -44,8 +49,7 @@
     background-color: #0468ff; 
 }
 
-.tabs .tabs_contents .active_content {
-    display: block;
+.tabs .tabs_contents .tabs_content {
     border: 0;
     border-top: 1px;
     border-style: solid;
@@ -53,8 +57,34 @@
     padding: 30px;
 }
 
-
-.tabs .tabs_contents .tabs_content {
+.hide {
     display: none;
 }
+
+.show_block {
+    display: block;
+}
+
+.tabs_links .tabs_link .tabs_svg {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    fill: #0468ff;
+    margin: 0 10px;
+    transition: background-color 200ms;
+}
+
+.tabs_links .tabs_link .tabs_svg:last-child {
+    margin: 0 0 0 10px;
+}
+.tabs_links .tabs_link .tabs_svg:hover {
+    background-color: #4d94ff;
+}
+
+.tabs_links .tabs_link:hover .tabs_svg {
+    fill: white;
+}
+
 
