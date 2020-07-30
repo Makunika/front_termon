@@ -15,6 +15,26 @@ button:focus {
     outline:0;
 }
 
+/*btn*/
+
+.btn_blue {
+    padding: 10px 20px;
+    color: #0468ff;
+    border: 1px solid #0468ff;
+    background: transparent;
+    font-size: 13pt;
+    cursor: pointer;
+    transition: all 200ms;   
+}
+
+.btn_blue:hover {
+    color: white;
+    border-color: white;
+    background-color: #0468ff; 
+}
+
+
+
 /* NAVBAR */
 
 .header {

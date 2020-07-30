@@ -54,18 +54,6 @@
 
 .wrapper .column_text .btn_course_start {
     margin-bottom: 20px;
-    padding: 10px 20px;
-    color: #0468ff;
-    border: 1px solid #0468ff;
-    background: transparent;
-    font-size: 13pt;
-    transition: all 200ms;
-}
-
-.wrapper .column_text .btn_course_start:hover {
-    color: white;
-    border-color: white;
-    background-color: #0468ff; 
 }
 
 
