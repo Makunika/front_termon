@@ -12,6 +12,7 @@ export default function editCourse() {
 
     tabsInit();
 
+
     function tabsInit() {
 
 
@@ -36,8 +37,9 @@ export default function editCourse() {
         });
     }
 
-    //Add tab
 
+    let pathname = window.location.pathname;
+    pathname = pathname.substring(5, pathname.length);
     const converterMark = new showdown.Converter({
         extensions: ['youtube'],
         smoothPreview: true
@@ -81,10 +83,13 @@ export default function editCourse() {
                         const review = $(e.target).parent('.mark').siblings('.review').children('.review_content');
                         review.html(converterMark.makeHtml(this.text));
                         console.log(e.key, e.keyCode);
-                        e.target.querySelectorAll('pre code').forEach((block) => {
+                        if (e.keyCode == 192) {
+                            document.querySelectorAll('pre code').forEach((block) => {
                                 hljs.highlightBlock(block);
                             });
+                        }
                         }).keyup();
+
 
                 }
         }
@@ -97,10 +102,10 @@ export default function editCourse() {
             }
 
             getLessons() {
-                $.getJSON("http://localhost:8080/api/modules/49/lessons", (data) => {
+                $.getJSON("/api/modules/8/lessons", (data) => {
                     data.forEach(element => {
                         console.log(element);
-                        let lesson = new Lesson(this.parent, element.id, element.text, element.name, element.number - 1);
+                        const lesson = new Lesson(this.parent, element.id, element.text, element.name, element.number - 1);
                         this.lessons.push(lesson);
                         console.log('one');
                     });
@@ -131,37 +136,56 @@ export default function editCourse() {
             }
 
             ajaxNewLesson(name) {
-                let lesson = new Lesson(this.parent, 0, "", name, this.lessons.length);
-                $.post("http://localhost:8080/modules/49/lessons", {
+                const lesson = new Lesson(this.parent, 0, "", name, this.lessons.length);
+                const data =  {
                     name: lesson.name,
                     number: lesson.index + 1
+                };
+
+                $.ajax({
+                    method: "POST",
+                    type: "POST",
+                    url: `/api/modules/8/lessons`,
+                    crossDomain: true,
+                    dataType: 'json',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify(data)
                 }).done((data) => {
                     console.log('ok!', data);
                     lesson.id = data.id;
                     this.lessons.push(lesson);
-                }).fail(() => {
-                    alert('Произошла ошибка добавления нового урока!');
+                    lesson.render();
+                }).fail((data) => {
+                    console.log('Произошла ошибка добавления нового урока!');
                 });
             }
 
             ajaxSaveLesson(lesson) {
+                const data = {
+                    number: lesson.index + 1,
+                    id: lesson.id,
+                    name: lesson.name,
+                    text: lesson.text
+                };
+
                 $.ajax({
                     method: "PUT",
-                    url: `http://localhost:8080/api/modules/49/lessons`,
-                    data: JSON.stringify({
-                        number: lesson.id,
-                        id: lesson.id,
-                        name: lesson.name,
-                        text: lesson.text
-                    }),
+                    type: "PUT",
+                    url: `/api/modules/8/lessons/${lesson.id}`,
+                    crossDomain: true,
+                    //dataType: 'jsonp',
+                    //dataType: 'application/json',
+                    dataType: 'json',
                     headers: {
-                        contentType: 'application/json'
+                        'Content-Type': 'application/json'
                     },
-                    crossDomain: true
+                    data: JSON.stringify(data)
                 }).done((data) => {
                     console.log('ok!', data);
                 }).fail((data) => {
-                    alert('Произошла ошибка сохранения урока!');
+                    console.log('Произошла ошибка сохранения урока!');
                 });
             }
 

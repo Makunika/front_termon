@@ -347,7 +347,7 @@ function editCourse() {
             }
 
             getLessons() {
-                jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON("http://localhost:8080/api/modules/49/lessons", (data) => {
+                jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON("http://localhost:8080/api/modules/8/lessons", (data) => {
                     data.forEach(element => {
                         console.log(element);
                         let lesson = new Lesson(this.parent, element.id, element.text, element.name, element.number - 1);
@@ -382,7 +382,7 @@ function editCourse() {
 
             ajaxNewLesson(name) {
                 let lesson = new Lesson(this.parent, 0, "", name, this.lessons.length);
-                jquery__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://localhost:8080/modules/49/lessons", {
+                jquery__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://localhost:8080/modules/8/lessons", {
                     name: lesson.name,
                     number: lesson.index + 1
                 }).done((data) => {
@@ -395,23 +395,33 @@ function editCourse() {
             }
 
             ajaxSaveLesson(lesson) {
+                const data = {
+                    number: lesson.id,
+                    id: lesson.id,
+                    name: lesson.name,
+                    text: lesson.text
+                };
+
+                /*$.post(`http://localhost:8080/api/modules/8/lessons/${lesson.id}`,
+                JSON.stringify(data)).done((data) => {
+                    console.log('ok!', data);
+                }).fail((data) => {
+                    console.log('Произошла ошибка сохранения урока!');
+                });*/
+
                 jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
                     method: "PUT",
-                    url: `http://localhost:8080/api/modules/49/lessons`,
-                    data: JSON.stringify({
-                        number: lesson.id,
-                        id: lesson.id,
-                        name: lesson.name,
-                        text: lesson.text
-                    }),
-                    headers: {
-                        contentType: 'application/json'
-                    },
-                    crossDomain: true
+                    type: "PUT",
+                    url: 'http://localhost:8080/api/modules/8/lessons',
+                    crossDomain: true,
+                    //dataType: 'jsonp',
+                    headers: {  'Access-Control-Allow-Origin': '*' },
+                    dataType: 'application/json',
+                    data: JSON.stringify(data)
                 }).done((data) => {
                     console.log('ok!', data);
                 }).fail((data) => {
-                    alert('Произошла ошибка сохранения урока!');
+                    console.log('Произошла ошибка сохранения урока!');
                 });
             }
 
