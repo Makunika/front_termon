@@ -1,0 +1,217 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic-ext);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif
+}
+
+a {
+    text-decoration: none;
+}
+
+button:focus {
+    outline:0;
+}
+
+/*btn*/
+
+.btn_blue {
+    padding: 10px 20px;
+    color: #0468ff;
+    border: 1px solid #0468ff;
+    background: transparent;
+    font-size: 13pt;
+    cursor: pointer;
+    transition: all 200ms;   
+}
+
+.btn_blue:hover {
+    color: white;
+    border-color: white;
+    background-color: #0468ff; 
+}
+
+
+
+/* NAVBAR */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.header_left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header_logo {
+    width: 80px;
+}
+
+.header_logo img {
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+}
+
+.header_links {
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header_link {
+    position: relative;
+    margin: 0 10px;
+    font-weight: 300;
+    font-size: 14pt;
+    max-width: 150px;
+    color: #adadad;
+}
+
+.header_link:hover {
+    color: #696969;
+}
+
+.header_link:focus {
+    color: #696969;
+}
+
+
+.header_right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header_btn {
+    position: relative;
+    margin: 0 10px;
+    font-weight: 300;
+    font-size: 14pt;
+    max-width: 150px;
+    color: #adadad;
+}
+
+.header_out {
+    background: transparent;
+    border-width: 0;
+    cursor: pointer;
+}
+
+.header_reg {
+    background-color: transparent;
+    border: 2px solid #adadad;
+    border-radius: 15px;
+    width: 130px;
+    height: 55px;
+    cursor: pointer;
+}
+
+.header_reg:hover {
+    border-color: #696969;
+}
+
+.header_btn:hover {
+    color: #696969;
+}
+
+.header_btn:focus {
+    color: #696969;
+}
+
+.header_name {
+    position: relative;
+    margin: 0 10px;
+    font-weight: 300;
+    font-size: 14pt;
+    max-width: 150px;
+    color: #9eb8ff;
+}
+
+
+/*Больше 3х элементов в шапке*/
+
+@media screen and (max-width: 1100px) {
+    .header-3 {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 865px) {
+    .header-3 {
+        padding: 10px 60px;
+    }
+    .header-3 .header_left .header_logo {
+        width: 0;
+        height: 0;
+    }
+    .header-3 .header_right {
+        padding-bottom: 20px;
+    }
+    .header-3 .header_left {
+        padding: 20px 0;
+    }
+}
+
+/*Меньше 3х элементов в шапке*/
+
+@media screen and (max-width: 785px) {
+    .header-2 {
+        flex-direction: column;
+        padding: 10px 60px;
+    }
+    .header-2 .header_left .header_logo {
+        width: 0;
+        height: 0;
+    }
+    .header-2 .header_right {
+        padding-bottom: 20px;
+    }
+    .header-2 .header_left .header_links {
+        padding-left: 0;
+    }
+    .header-2 .header_left {
+        padding: 20px 0;
+    }
+}
+
+
+/*FOOTER*/
+
+.footer-bottom {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    text-align: center;
+    background-color: #696969;
+}
+
+.footer-fix {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    text-align: center;
+    background-color: #696969;
+}
+
+.footer h4 {
+    font-size: 13pt;
+    font-weight: 300;
+}
+
+
+
+

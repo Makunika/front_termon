@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_edit_modules.css">
+</head>
+
+<body>
+    <div class="content_all">
+        <header class="header">
+            <div class="header_left">
+                <div class="header_logo">
+                    <img src="img/logo.png" alt="Логтипчик">
+                </div>
+                <nav class="header_links">
+                    <a href="/" class="header_link">Каталог курсов</a>
+                    <a href="/courses" class="header_link">Мои курсы</a>
+                    <a href="/user" class="header_link">Мой профиль</a>
+                    <a href="/users_edit" class="header_link">Редактировать пользователей (для админа)</a>
+                </nav>
+            </div>
+            <div class="header_right">
+                <p class="header_name">name</p>
+                <a href="/registration" class="header_in header_btn">Войти</a>
+                <form action="/logout" method="GET">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                    <button type="submit" class="header_reg header_btn">Регистрация</button>
+                </form>
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                    <button type="submit" class="header_out header_btn">Выйти</button>
+                </form>
+            </div>
+        </header>
+        <div class="content__">
+            <div class="programm_back">
+                <div class="programm content">
+                    <div class="programm_item">
+                        <header class="header_programm">
+                            <h3>Наша программа</h3>
+                        </header>
+                        <ul class="content_programm">
+                            <li class="accordion_item">
+                                <div class="accordion_header">
+                                    <button class="accordion_button"><span>Название модуля у курса</span><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg></button>
+                                    <button class="accordion_button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"
+                                            width="24" height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                            </svg>
+                                    </button>
+                                    <select id="select" class="select" name="number">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="accordion_content hide">
+                                    <ol class="accordoin_sublist">
+                                        <li class="accordion_sublist_item">Модуль урока один</li>
+                                        <li class="accordion_sublist_item">Модуль урока 2</li>
+                                        <li class="accordion_sublist_item">Модуль урока 3</li>
+                                        <li class="accordion_sublist_item">Модуль урока 4</li>
+                                        <li class="accordion_sublist_item">Модуль урока 5</li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="accordion_item">
+                                <div class="accordion_header">
+                                    <button class="accordion_button"><span>Название модуля у курса</span><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg></button>
+                                    <button class="accordion_button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"
+                                            width="24" height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                            </svg>
+                                    </button>
+                                    <select id="select" class="select" name="number">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="accordion_content hide">
+                                    <ol class="accordoin_sublist">
+                                        <li class="accordion_sublist_item">Модуль урока один</li>
+                                        <li class="accordion_sublist_item">Модуль урока 2</li>
+                                        <li class="accordion_sublist_item">Модуль урока 3</li>
+                                        <li class="accordion_sublist_item">Модуль урока 4</li>
+                                        <li class="accordion_sublist_item">Модуль урока 5</li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="accordion_item">
+                                <div class="accordion_header">
+                                    <button class="accordion_button"><span>Название модуля у курса</span><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg></button>
+                                    <button class="accordion_button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"
+                                            width="24" height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                            </svg>
+                                    </button>
+                                    <select id="select" class="select" name="number">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="accordion_content hide">
+                                    <ol class="accordoin_sublist">
+                                        <li class="accordion_sublist_item">Модуль урока один</li>
+                                        <li class="accordion_sublist_item">Модуль урока 2</li>
+                                        <li class="accordion_sublist_item">Модуль урока 3</li>
+                                        <li class="accordion_sublist_item">Модуль урока 4</li>
+                                        <li class="accordion_sublist_item">Модуль урока 5</li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="accordion_item">
+                                <div class="accordion_header">
+                                    <button class="accordion_button"><span>Название модуля у курса</span><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg></button>
+                                    <button class="accordion_button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"
+                                            width="24" height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                            </svg>
+                                    </button>
+                                    <select id="select" class="select" name="number">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="accordion_content hide">
+                                    <ol class="accordoin_sublist">
+                                        <li class="accordion_sublist_item">Модуль урока один</li>
+                                        <li class="accordion_sublist_item">Модуль урока 2</li>
+                                        <li class="accordion_sublist_item">Модуль урока 3</li>
+                                        <li class="accordion_sublist_item">Модуль урока 4</li>
+                                        <li class="accordion_sublist_item">Модуль урока 5</li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="accordion_item">
+                                <div class="accordion_header">
+                                    <button class="accordion_button"><span>Название модуля у курса</span><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg></button>
+                                    <button class="accordion_button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"
+                                            width="24" height="24">
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                            </svg>
+                                    </button>
+                                    <select id="select" class="select" name="number">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="accordion_content hide">
+                                    <ol class="accordoin_sublist">
+                                        <li class="accordion_sublist_item">Модуль урока один</li>
+                                        <li class="accordion_sublist_item">Модуль урока 2</li>
+                                        <li class="accordion_sublist_item">Модуль урока 3</li>
+                                        <li class="accordion_sublist_item">Модуль урока 4</li>
+                                        <li class="accordion_sublist_item">Модуль урока 5</li>
+                                    </ol>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dist/js/edit_modules.js"></script>
+</body>
+
+</html>

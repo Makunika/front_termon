@@ -1,0 +1,125 @@
+.content {
+    margin: 0 250px;
+}
+
+
+.programm_item > .header_programm > h3 {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.programm_item > .content_programm {
+    border-top: 1px solid black;
+}
+
+.programm_item > .content_programm > .accordion_item {
+    border-bottom: 1px solid black;
+}
+
+.programm_item > .content_programm > .accordion_item > .accordion_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.programm_item > .content_programm > .accordion_item .accordion_button {
+    padding: 15px 0;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: left;
+    background-color: transparent;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    border-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 150ms;
+}
+
+.programm_item > .content_programm > .accordion_item .accordion_button:first-child {
+    width: 100%;
+    border: none;
+}
+
+.programm_item > .content_programm > .accordion_item .accordion_button:hover {
+    background-color: #0468ff;
+    color: white;
+}
+
+.programm_item > .content_programm > .accordion_item .accordion_button:focus {
+    border: 0;
+}
+
+.programm_item > .content_programm > .accordion_item .accordion_button > svg {
+    margin: 0 20px;
+    width: 24px;
+    height: 24px;
+    fill: black;
+    transition: fill 100ms, transform 300ms;
+}
+
+.programm_item > .content_programm > .accordion_item .accordion_button > span {
+    margin: 0 20px;
+}
+
+.programm_item > .content_programm > .accordion_item .accordion_button:hover > svg {
+    fill: white;
+}
+
+.programm_item > .content_programm > .accordion_item select {
+    width: 10%;
+    border: 0;
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    padding-left: 5px;
+}
+
+.programm_item > .content_programm > .accordion_item select:focus {
+    outline: none;
+}
+
+
+.svg_rotate {
+    transform: rotate(45deg);
+}
+
+.accordion_content .accordoin_sublist {
+    padding: 0 50px;
+}
+
+.accordion_content .accordoin_sublist .accordion_sublist_item {
+    padding: 25px;
+    border-width: 0 0 2px 0;
+    border-color: rgb(255, 153, 167);
+    border-style: solid;
+}
+
+.accordion_content .accordoin_sublist .accordion_sublist_item:last-child {
+    padding: 25px;
+    border-width: 0;
+}
+
+.hide {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+@media screen and (max-width: 785px) {
+    .content {
+        margin: 0 30px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .content {
+        margin: 0 100px;
+    }
+}
