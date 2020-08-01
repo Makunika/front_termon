@@ -7,22 +7,26 @@ export default class ModuleCourse {
     constructor(name, about, index, lessons, id, parent) {
         this.name = name;
         this.index = index;
-        this.lessons = lessons;
         this.id = id;
         this.parent = parent;
         this.about = about;
+        this._lessons = lessons;
     }
 
     render() {
         alert('Переопредли render()');
     }
 
-    get nameModule() {
-        return this.name;
+    saveAjax() {
+        alert('Переопредли saveAjax()');
     }
 
-    set nameModule(name) {
-        this.name = name;
+    createAjax() {
+        alert('Переопредли createAjax()');
+    }
+
+    get nameModule() {
+        return this.name;
     }
 
     get idModule() {
@@ -42,11 +46,12 @@ export default class ModuleCourse {
     }
 
     get lessonsModule() {
-        return this.lessons;
+        return this._lessons;
     }
 
-    set lessonsModule(lessons) {
-        this.lessons = lessons;
+
+    set lessonsModule(value) {
+        this._lessons = value;
     }
 
     get indexModule() {

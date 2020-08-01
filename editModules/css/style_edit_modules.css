@@ -1,5 +1,5 @@
 .content {
-    margin: 0 250px;
+    margin: 0 250px 100px 250px;
 }
 
 
@@ -68,10 +68,8 @@
 
 .programm_item > .content_programm > .accordion_item select {
     width: 10%;
-    border: 0;
+    border: 0 solid #ccc;
     border-left-width: 1px;
-    border-style: solid;
-    border-color: #ccc;
     padding-left: 5px;
 }
 
@@ -109,11 +107,14 @@ ul {
 
 @media screen and (max-width: 785px) {
     .content {
-        margin: 0 30px;
+        margin: 0 40px;
+    }
+    .programm_item > .content_programm > .accordion_item select {
+        width: 20%;
     }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1100px) and (min-width: 785px) {
     .content {
         margin: 0 100px;
     }
