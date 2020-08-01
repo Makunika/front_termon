@@ -50,10 +50,6 @@
     color: white;
 }
 
-.programm_item > .content_programm > .accordion_item .accordion_button:focus {
-    border: 0;
-}
-
 .programm_item > .content_programm > .accordion_item .accordion_button > svg {
     margin: 0 20px;
     width: 24px;
@@ -93,14 +89,13 @@
 }
 
 .accordion_content .accordoin_sublist .accordion_sublist_item {
-    padding: 25px;
-    border-width: 0 0 2px 0;
-    border-color: rgb(255, 153, 167);
+    padding: 15px;
+    border-width: 0 0 1px 0;
+    border-color: #ccc;
     border-style: solid;
 }
 
 .accordion_content .accordoin_sublist .accordion_sublist_item:last-child {
-    padding: 25px;
     border-width: 0;
 }
 
