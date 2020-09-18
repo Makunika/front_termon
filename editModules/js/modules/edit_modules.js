@@ -4,6 +4,8 @@ import ModuleCourse from './entity/ModuleCourse';
 export default function editModules() {
 
 
+    const re = /courses.(\d+).*/;
+    const courseId =  re.exec(window.location.pathname)[1];
 
     class ModuleCourseRenderer extends ModuleCourse {
 
@@ -50,11 +52,11 @@ export default function editModules() {
 
         saveAjax() {
             const data = {
-                number: this.indexModule + 1,
+                number: this.indexModule,
                 id: super.idModule,
                 name: super.nameModule
             }
-            $.ajax(`/api/courses/id/modules/${this.indexModule}`, {
+            $.ajax(`/api/courses/${courseId}/modules/${data.id}`, {
                 method: 'PUT',
                 crossDomain: true,
                 dataType: 'json',
@@ -71,10 +73,10 @@ export default function editModules() {
 
         createAjax() {
             const data = {
-                number: this.indexModule + 1,
+                number: this.indexModule,
                 name: super.nameModule
             }
-            return $.ajax(`/api/courses/id/modules`, {
+            return $.ajax(`/api/courses/${courseId}/modules`, {
                 method: 'POST',
                 crossDomain: true,
                 dataType: 'json',
@@ -109,16 +111,16 @@ export default function editModules() {
     class ModuleCourses {
         constructor(parent) {
             this.modules = [
-                new ModuleCourseRenderer("name", 0, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
-                new ModuleCourseRenderer("name2", 1, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
-                new ModuleCourseRenderer("name3", 2, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
-                new ModuleCourseRenderer("name4", 3, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent)
+                //new ModuleCourseRenderer("name", 1, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
+                //new ModuleCourseRenderer("name2", 2, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
+                //new ModuleCourseRenderer("name3", 3, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
+                //new ModuleCourseRenderer("name4", 4, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent)
             ];
             this.parent = parent;
         }
 
         initAjax() {
-            $.getJSON(`http://localhost:8080/api/courses/38/modules`, (data) => {
+            $.getJSON(`/api/courses/${courseId}/modules`, (data) => {
                 console.log(data);
                 data.forEach(element => {
                     console.log(element);
@@ -133,9 +135,9 @@ export default function editModules() {
                 setClickAccordions();
                 this.initSelect();
             });
-            this.render();
-            setClickAccordions();
-            this.initSelect();
+            //this.render();
+            //setClickAccordions();
+            //this.initSelect();
         }
         
         render() {
@@ -157,8 +159,7 @@ export default function editModules() {
                 let i = 1;
                 let html = "";
                 this.modules.forEach((moduleC) => {
-                    if (moduleC.indexModule === index) {
-                        
+                    if (moduleC.indexModule === index + 1) {
                         html += `<option value="${i}" selected >${i}</option>`;
                     } else {
                         html += `<option value="${i}">${i}</option>`;
@@ -184,22 +185,22 @@ export default function editModules() {
         }
 
         swap(module1, module2) {
-            console.log($(this.parent).children('.accordion_item').eq(module1.index));
-            console.log($(this.parent).children('.accordion_item').eq(module2.index));
+            console.log($(this.parent).children('.accordion_item').eq(module1.index - 1));
+            console.log($(this.parent).children('.accordion_item').eq(module2.index - 1));
             if (module2.indexModule < module1.indexModule) {
-                $(this.parent).children('.accordion_item').eq(module1.index).before($(this.parent).children('.accordion_item').eq(module2.index));
-                $(this.parent).children('.accordion_item').eq(module2.index).before($(this.parent).children('.accordion_item').eq(module1.index));
+                $(this.parent).children('.accordion_item').eq(module1.index - 1).before($(this.parent).children('.accordion_item').eq(module2.index - 1));
+                $(this.parent).children('.accordion_item').eq(module2.index - 1).before($(this.parent).children('.accordion_item').eq(module1.index - 1));
             } else {
-                $(this.parent).children('.accordion_item').eq(module2.index).before($(this.parent).children('.accordion_item').eq(module1.index));
-                $(this.parent).children('.accordion_item').eq(module1.index).before($(this.parent).children('.accordion_item').eq(module2.index));
+                $(this.parent).children('.accordion_item').eq(module2.index - 1).before($(this.parent).children('.accordion_item').eq(module1.index - 1));
+                $(this.parent).children('.accordion_item').eq(module1.index - 1).before($(this.parent).children('.accordion_item').eq(module2.index - 1));
             }
             const tmpIndex = module1.indexModule;
             module1.indexModule = module2.indexModule;
             module2.indexModule = tmpIndex;
             $(this.parent).children('.accordion_item')
-                .eq(module1.indexModule).children('.accordion_header').children('select').val(module1.indexModule + 1);
+                .eq(module1.indexModule - 1).children('.accordion_header').children('select').val(module1.indexModule);
             $(this.parent).children('.accordion_item')
-                .eq(module2.indexModule).children('.accordion_header').children('select').val(module2.indexModule + 1);
+                .eq(module2.indexModule - 1).children('.accordion_header').children('select').val(module2.indexModule);
             this.initChange();
             this.sortByIndex();
             this.saveAjax(module1, module2);
@@ -219,7 +220,7 @@ export default function editModules() {
 
         newModule() {
             let newModule = new ModuleCourseRenderer(
-                'Поменять название в настройках модуля', this.modules.length, [], 1, this.parent);
+                'Поменять название в настройках модуля', this.modules.length + 1, [], 1, this.parent);
             newModule.createAjax().then((data) => {
                 newModule.renderBefore('.accordion_item:last')
                 this.modules.push(newModule);
@@ -243,7 +244,8 @@ export default function editModules() {
             });
             $(this).children('.accordion_header').children('.accordion_button:last').unbind().click(function() {
                 const id = moduleCourses.modules[indx].id;
-                $(this).attr('href', `/user/modules/${id}/lessons`);
+
+                $(this).attr('href', `/user/edit/courses/${courseId}/modules/${id}/lessons`);
             });
         });
         $('.accordion_item:last').unbind().click(function () {
@@ -251,10 +253,6 @@ export default function editModules() {
         });
 
     }
-
-    const re = /courses.(\d+).*/;
-    console.log(re.exec('/user/courses/45/allo'));
-    //${window.location.pathname}
 
 
 }

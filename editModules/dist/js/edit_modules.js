@@ -180,6 +180,8 @@ __webpack_require__.r(__webpack_exports__);
 function editModules() {
 
 
+    const re = /courses.(\d+).*/;
+    const courseId =  re.exec(window.location.pathname)[1];
 
     class ModuleCourseRenderer extends _entity_ModuleCourse__WEBPACK_IMPORTED_MODULE_1__["default"] {
 
@@ -226,11 +228,11 @@ function editModules() {
 
         saveAjax() {
             const data = {
-                number: this.indexModule + 1,
+                number: this.indexModule,
                 id: super.idModule,
                 name: super.nameModule
             }
-            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax(`/api/courses/id/modules/${this.indexModule}`, {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax(`/api/courses/${courseId}/modules/${data.id}`, {
                 method: 'PUT',
                 crossDomain: true,
                 dataType: 'json',
@@ -247,10 +249,10 @@ function editModules() {
 
         createAjax() {
             const data = {
-                number: this.indexModule + 1,
+                number: this.indexModule,
                 name: super.nameModule
             }
-            return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax(`/api/courses/id/modules`, {
+            return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax(`/api/courses/${courseId}/modules`, {
                 method: 'POST',
                 crossDomain: true,
                 dataType: 'json',
@@ -285,16 +287,16 @@ function editModules() {
     class ModuleCourses {
         constructor(parent) {
             this.modules = [
-                new ModuleCourseRenderer("name", 0, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
-                new ModuleCourseRenderer("name2", 1, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
-                new ModuleCourseRenderer("name3", 2, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
-                new ModuleCourseRenderer("name4", 3, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent)
+                //new ModuleCourseRenderer("name", 1, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
+                //new ModuleCourseRenderer("name2", 2, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
+                //new ModuleCourseRenderer("name3", 3, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent),
+                //new ModuleCourseRenderer("name4", 4, [{ name: 'nameLesson'}, { name: 'nameLesson'}, { name: 'nameLesson'}], 25, parent)
             ];
             this.parent = parent;
         }
 
         initAjax() {
-            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(`http://localhost:8080/api/courses/38/modules`, (data) => {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(`/api/courses/${courseId}/modules`, (data) => {
                 console.log(data);
                 data.forEach(element => {
                     console.log(element);
@@ -309,9 +311,9 @@ function editModules() {
                 setClickAccordions();
                 this.initSelect();
             });
-            this.render();
-            setClickAccordions();
-            this.initSelect();
+            //this.render();
+            //setClickAccordions();
+            //this.initSelect();
         }
         
         render() {
@@ -333,8 +335,7 @@ function editModules() {
                 let i = 1;
                 let html = "";
                 this.modules.forEach((moduleC) => {
-                    if (moduleC.indexModule === index) {
-                        
+                    if (moduleC.indexModule === index + 1) {
                         html += `<option value="${i}" selected >${i}</option>`;
                     } else {
                         html += `<option value="${i}">${i}</option>`;
@@ -360,22 +361,22 @@ function editModules() {
         }
 
         swap(module1, module2) {
-            console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index));
-            console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index));
+            console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index - 1));
+            console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index - 1));
             if (module2.indexModule < module1.indexModule) {
-                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index));
-                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index));
+                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index - 1).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index - 1));
+                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index - 1).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index - 1));
             } else {
-                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index));
-                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index));
+                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index - 1).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index - 1));
+                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module1.index - 1).before(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item').eq(module2.index - 1));
             }
             const tmpIndex = module1.indexModule;
             module1.indexModule = module2.indexModule;
             module2.indexModule = tmpIndex;
             jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item')
-                .eq(module1.indexModule).children('.accordion_header').children('select').val(module1.indexModule + 1);
+                .eq(module1.indexModule - 1).children('.accordion_header').children('select').val(module1.indexModule);
             jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.parent).children('.accordion_item')
-                .eq(module2.indexModule).children('.accordion_header').children('select').val(module2.indexModule + 1);
+                .eq(module2.indexModule - 1).children('.accordion_header').children('select').val(module2.indexModule);
             this.initChange();
             this.sortByIndex();
             this.saveAjax(module1, module2);
@@ -395,7 +396,7 @@ function editModules() {
 
         newModule() {
             let newModule = new ModuleCourseRenderer(
-                'Поменять название в настройках модуля', this.modules.length, [], 1, this.parent);
+                'Поменять название в настройках модуля', this.modules.length + 1, [], 1, this.parent);
             newModule.createAjax().then((data) => {
                 newModule.renderBefore('.accordion_item:last')
                 this.modules.push(newModule);
@@ -419,7 +420,8 @@ function editModules() {
             });
             jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.accordion_header').children('.accordion_button:last').unbind().click(function() {
                 const id = moduleCourses.modules[indx].id;
-                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('href', `/user/modules/${id}/lessons`);
+
+                jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('href', `/user/edit/courses/${courseId}/modules/${id}/lessons`);
             });
         });
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('.accordion_item:last').unbind().click(function () {
@@ -427,10 +429,6 @@ function editModules() {
         });
 
     }
-
-    const re = /courses.(\d+).*/;
-    console.log(re.exec('/user/courses/45/allo'));
-    //${window.location.pathname}
 
 
 }

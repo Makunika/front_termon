@@ -262,6 +262,11 @@ function editCourse() {
 
     tabsInit();
 
+    const re = /courses.(\d+).*modules.(\d+).*/;
+    const arr = re.exec(window.location.pathname);
+    const moduleId = 39//arr[2];
+    const courseId = 25//arr[1];
+
     function tabsInit() {
 
 
@@ -286,7 +291,6 @@ function editCourse() {
         });
     }
 
-    //Add tab
 
     const converterMark = new showdown__WEBPACK_IMPORTED_MODULE_1___default.a.Converter({
         extensions: ['youtube'],
@@ -331,10 +335,13 @@ function editCourse() {
                         const review = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).parent('.mark').siblings('.review').children('.review_content');
                         review.html(converterMark.makeHtml(this.text));
                         console.log(e.key, e.keyCode);
-                        e.target.querySelectorAll('pre code').forEach((block) => {
+                        //if (e.keyCode === 192) {
+                            document.querySelectorAll('pre code').forEach((block) => {
                                 highlight_js__WEBPACK_IMPORTED_MODULE_3___default.a.highlightBlock(block);
                             });
+                        //}
                         }).keyup();
+
 
                 }
         }
@@ -347,10 +354,10 @@ function editCourse() {
             }
 
             getLessons() {
-                jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON("http://localhost:8080/api/modules/8/lessons", (data) => {
+                /*$.getJSON(`/api/modules/${moduleId}/lessons`, (data) => {
                     data.forEach(element => {
                         console.log(element);
-                        let lesson = new Lesson(this.parent, element.id, element.text, element.name, element.number - 1);
+                        const lesson = new Lesson(this.parent, element.id, element.text, element.name, element.number - 1);
                         this.lessons.push(lesson);
                         console.log('one');
                     });
@@ -361,8 +368,22 @@ function editCourse() {
                     this.lessons.sort(function (a, b) {
                         return a.index - b.index;
                     });
+                });*/
+                const data = JSON.parse(`[{"id":98,"text":"## Адреса и переменные\\n\\nКак вы уже знаете, переменные — это имена кусочков памяти, которые могут хранить информацию. Помним, что компьютеры имеют оперативную память, которая доступна программам для использования. Когда мы определяем переменную, часть этой памяти отводится ей.\\n\\nНаименьшая единица памяти — **бит** (англ. «bit» от «binary digit»), который может содержать либо значение 0, либо значение 1. Вы можете думать о бите, как о переключателе света — либо свет выключен (0), либо включен (1). Чего-то среднего между ними нет.\\n\\n## Объявление переменных\\n\\nВы уже знаете, как объявить целочисленную переменную:\\n\\n\`\`\`C++\\nint nVarName; // int - это тип, а nVarName - это имя переменной\\n\`\`\`\\nПринцип объявления переменных других типов аналогичен:\\n\`\`\`C++\\ntype varName; // type - это тип (например, int), а varName - это имя переменной\\n\`\`\`\\nОбъявление пяти переменных разных типов:\\n\`\`\`C++\\nbool bValue;\\nchar chValue;\\nint nValue;\\nfloat fValue;\\ndouble dValue;\\nbool bValue;\\nchar chValue;\\nint nValue;\\nfloat fValue;\\ndouble dValue;\\n\`\`\`\\n\\nОбратите внимание, переменной типа void здесь нет (о типе void мы поговорим детально на следующем уроке).\\n\\n\`\`\`C++\\nvoid vValue; // не будет работать, так как void не может использоваться в качестве типа переменной\\n\`\`\`\\n## Инициализация переменных\\n\\nПри объявлении переменной мы можем присвоить ей значение в этот же момент. Это называется инициализацией переменной.\\n\\nC++ поддерживает два основных способа инициализации переменных:\\n\\nСпособ №1: Копирующая инициализация (или «инициализация копированием») с помощью знака равенства =:\\n\\n\`\`\`C++\\nint nValue = 5; // копирующая инициализация\\n\`\`\`\\nСпособ №2: Прямая инициализация с помощью круглых скобок ():\\n\\n\`\`\`C++\\nint nValue(5); // прямая инициализация\\n\`\`\`\\nПрямая инициализация лучше работает с одними типами данных, копирующая инициализация — с другими.","name":"Инициализация, присваивание и объявление переменных","number":1,"autor":{"id":25,"login":"admin"}},{"id":99,"text":"### Цикл for\\n\\nЦиклы for могут быть несколько сложны для новичков, однако опытные кодеры любят их, так как эти циклы очень компактны и удобны. Для наглядности, давайте преобразуем цикл for, приведенный выше, в эквивалентный цикл while:\\n\`\`\`cs\\n#include <iostream>\\n\\nint main()\\n{\\n\\t{ // внешние скобки нужны для обеспечения области видимости цикла\\n\\t\\tint count = 0;\\n\\t\\twhile (count < 10)\\n\\t\\t{\\n\\t\\t\\tstd::cout << count << \\" \\";\\n\\t\\t\\t++count;\\n\\t\\t}\\n\\t}\\n\\n\\treturn 0;\\n}\\n\`\`\`\\n\\nОбратите внимание, внешние фигурные скобки здесь необходимы, так как переменная count выходит из области видимости при завершении цикла.\\n\\n### Еще примеры циклов for\\nДавайте, используя цикл for, напишем функцию вычисления значений в степени n:\\n\`\`\`C++\\nint pow(int base, int exponent)\\n{\\n    int total = 1;\\n \\n    for (int count=0; count < exponent; ++count)\\n        total *= base;\\n \\n    return total;\\n}\\n\`\`\`","name":"Тип данных void","number":2,"autor":{"id":25,"login":"admin"}},{"id":100,"text":"# Header 1","name":"Размер типов данных","number":3,"autor":{"id":25,"login":"admin"}},{"id":101,"text":"# Header 1\\n## Header 2","name":"Урочек еще один","number":4,"autor":{"id":25,"login":"admin"}}]`)
+                data.forEach(element => {
+                    console.log(element);
+                    const lesson = new Lesson(this.parent, element.id, element.text, element.name, element.number - 1);
+                    this.lessons.push(lesson);
+                    console.log('one');
                 });
-                
+                if (this.lessons.length > 0) {
+                    this.render();
+                    this.lessons.sort(function (a, b) {
+                        return a.index - b.index;
+                    });
+                    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.btn_blue:first').click();
+                }
+
             }
 
             render() {
@@ -374,53 +395,63 @@ function editCourse() {
             }
 
             addNewTab(name) {
-                if (name != "") {
+                if (name !== "") {
                     this.ajaxNewLesson(name);
                 }
                 this.closeAddTab();
             }
 
             ajaxNewLesson(name) {
-                let lesson = new Lesson(this.parent, 0, "", name, this.lessons.length);
-                jquery__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://localhost:8080/modules/8/lessons", {
+                const lesson = new Lesson(this.parent, 0, "", name, this.lessons.length);
+                const data =  {
                     name: lesson.name,
                     number: lesson.index + 1
+                };
+
+                jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+                    method: "POST",
+                    type: "POST",
+                    url: `/api/modules/${moduleId}/lessons`,
+                    crossDomain: true,
+                    dataType: 'json',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify(data)
                 }).done((data) => {
                     console.log('ok!', data);
                     lesson.id = data.id;
                     this.lessons.push(lesson);
-                }).fail(() => {
-                    alert('Произошла ошибка добавления нового урока!');
+                    lesson.render();
+                }).fail((data) => {
+                    console.log('Произошла ошибка добавления нового урока!');
                 });
             }
 
-            ajaxSaveLesson(lesson) {
+            ajaxSaveLesson(lesson, intervalId) {
                 const data = {
-                    number: lesson.id,
+                    number: lesson.index + 1,
                     id: lesson.id,
                     name: lesson.name,
                     text: lesson.text
                 };
 
-                /*$.post(`http://localhost:8080/api/modules/8/lessons/${lesson.id}`,
-                JSON.stringify(data)).done((data) => {
-                    console.log('ok!', data);
-                }).fail((data) => {
-                    console.log('Произошла ошибка сохранения урока!');
-                });*/
-
                 jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
                     method: "PUT",
                     type: "PUT",
-                    url: 'http://localhost:8080/api/modules/8/lessons',
+                    url: `/api/modules/${moduleId}/lessons/${lesson.id}`,
                     crossDomain: true,
                     //dataType: 'jsonp',
-                    headers: {  'Access-Control-Allow-Origin': '*' },
-                    dataType: 'application/json',
+                    //dataType: 'application/json',
+                    dataType: 'json',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     data: JSON.stringify(data)
                 }).done((data) => {
                     console.log('ok!', data);
                 }).fail((data) => {
+                    clearInterval(intervalId);
                     console.log('Произошла ошибка сохранения урока!');
                 });
             }
@@ -431,10 +462,10 @@ function editCourse() {
             }
 
             autosave() {
-                const intervalId =setInterval(function(lessons) {
+                const intervalId = setInterval(function(lessons) {
                     lessons.lessons.forEach((element) => {
                         console.log('autosave', element);
-                        lessons.ajaxSaveLesson(element);
+                        lessons.ajaxSaveLesson(element, intervalId);
                     });
                 }, 5000, this);
             }
